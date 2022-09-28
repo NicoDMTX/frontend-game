@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'RoyaleKingdom';
+    src: url('/fonts/Royale\ Kingdom\ DEMO.ttf');
+}
+
+body {
+    font-family: 'RoyaleKingdom';
+    background-color: #363636;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    top: 20em;
+}
+
+.character_card {
+    margin: 0px 10px 0px 10px;
+    background-color: #494949;
+    border-radius: 10px;
+    padding: 15px 15px;
+    box-shadow: 10px solid black;
+}
+
+.character_level {
+    text-align: center;
+    font-weight: bold;
+    color: #e6b13d;
+    font-size: 64px;
+}
+
+.character_job {
+    color: #c42e2e;
+    font-weight: 600;
+    font-size: 56px;
+}
