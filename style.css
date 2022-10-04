@@ -4,16 +4,15 @@
 }
 
 body {
-    font-family: 'RoyaleKingdom';
     background-color: #363636;
 }
 
 .container {
+    font-family: 'RoyaleKingdom';
     display: flex;
     position: relative;
     flex-direction: row;
     width: 100%;
-    top: 20em;
 }
 
 .character_card {
@@ -35,4 +34,24 @@ body {
     color: #c42e2e;
     font-weight: 600;
     font-size: 56px;
+}
+
+.character_life {
+    text-align: center;
+    font-weight: bold;
+    color: #e6b13d;
+    font-size: 64px;
+}
+
+.form_subscribe {
+    width: 100%;
+    display: flex;
+    margin-top: 5em;
+    color: white;
+    justify-content: center;
+}
+
+.form_elements {
+    display: flex;
+    flex-direction: column;
 }
