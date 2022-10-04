@@ -4,34 +4,71 @@
 }
 
 body {
-    background-color: #363636;
+    background: -webkit-linear-gradient(to right, #44a08d, #093637); 
+    background: linear-gradient(to right, #44a08d, #093637); 
+    overflow-x: hidden;
 }
 
 .container {
     font-family: 'RoyaleKingdom';
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     flex-direction: row;
     width: 100%;
 }
 
 .character_card {
-    margin: 0px 10px 0px 10px;
-    background-color: #494949;
+    min-width: 300px;
+    max-width: 215px;
+    margin: 0px 10px 10px 10px;
     border-radius: 10px;
     padding: 15px 15px;
-    box-shadow: 10px solid black;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 5px 45px rgba(0,0,0,0.1);
+    backdrop-filter: blur(2px);
+    transition: 1s;
+    color: white;
+    overflow: hidden;
+}
+
+.character_content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.character_card:hover {
+    transform: translateY(-5px)
+}
+
+.character_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    transform: skewX(45deg) translateX(500px);
+    transition: 1s;
+}
+
+.character_card:hover::before {
+    transform: skewX(45deg) translateX(-500px);
 }
 
 .character_level {
     text-align: center;
     font-weight: bold;
-    color: #e6b13d;
     font-size: 64px;
 }
 
 .character_job {
-    color: #c42e2e;
     font-weight: 600;
     font-size: 56px;
     text-align: center;
@@ -40,8 +77,23 @@ body {
 .character_life {
     text-align: center;
     font-weight: bold;
-    color: #e6b13d;
     font-size: 64px;
+}
+
+.character_select {
+    width: 170px;
+    height: 30px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba(117, 190, 218, 0.0);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 5px 45px rgb(0 0 0 / 10%);
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .form_subscribe {
