@@ -48,10 +48,39 @@ body {
     display: flex;
     margin-top: 5em;
     color: white;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register {
+    font-weight: bold;
+    font-size: 20px;
+    
 }
 
 .form_elements {
     display: flex;
     flex-direction: column;
+}
+
+.account{
+    background: #363636;
+    border: none;
+    border-bottom: 1px solid white;
+    height: 25px;
+    outline: none;
+    color: white;
+}
+
+.submit {
+    margin-top: 5px;
+}
+
+.account:active {
+    border: none;
+    outline:none;
+}
+
+label {
+    text-align: center;
 }

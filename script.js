@@ -1,13 +1,27 @@
+
+
 async function getCharacters() {
     try {
         const response = await axios.get('http://localhost:5000/characters')
-        console.log(response)
+        response.data.map((character, data) => {
+            data += `
+                <div class="character_card">
+                    <div class="character_level">${character.level}</div>
+                    <div class="character_job">${character.job}</div>
+                    <div class="character_life">${character.life}</div>
+                </div>
+            `
+            console.log(data)
+            console.log(character)
+            document.querySelector('.container').innerHTML = data;
+        })
+        
     } catch (e) {
         console.log(e)
     }
 }
 
-getCharacters()
+getCharacters();
 
 const createCharacter = async () => {
     const newCharacter = {
@@ -18,7 +32,7 @@ const createCharacter = async () => {
 
     try {
         const res = await axios.post('http://localhost:5000/characters', newCharacter);
-        console.log(res.data)
+        await getCharacters(res.data)
     } catch (e) {
         console.log(e)
     }
@@ -29,33 +43,24 @@ const characterCreateBtn = document.querySelector('.create_character')
 characterCreateBtn.addEventListener('click', () => {
     createCharacter();
 })
-    
 
-const character = fetch('http://localhost:5000/characters').then((data) => {
-    return data.json();
-}).then((completeData) => {
-    let characterData = "";
-    completeData.map((values) => {
-        characterData += `
-        <div class="character_card">
-            <div class="character_level">${values.level}</div>
-            <div class="character_job">${values.job}</div>
-            <div class="character_life">${values.life}</div>
-        </div>
-        `
-    });
-    document.querySelector('.container').innerHTML = characterData;
-}).catch((err) => {
-    console.log(err)
-})
-
+// const character = fetch('http://localhost:5000/characters').then((data) => {
+//     return data.json();
+// }).then((completeData) => {
+//     characterData = "";
+//     completeData.map((values) => {
+//         characterData += 
+//     });
+//     document.querySelector('.container').innerHTML = characterData;
+// }).catch((err) => {
+//     console.log(err)
+// })
 
 // User 
 
 const formEmail = document.querySelector('#email_name');
 const formPassword = document.querySelector('#password');
 const sendRegister = document.querySelector('#submit')
-console.log(formEmail, formPassword)
 
 const subscribe = async () => {
     let register = {
@@ -64,8 +69,9 @@ const subscribe = async () => {
     }
 
     try {
-        const res = axios.post('http://localhost:5000/register', register);
-        console.log(res)
+        const res = axios.post('http://localhost:5000/register', register)
+        console.log(res);
+
     } catch(e) {
         console(e)
     }
