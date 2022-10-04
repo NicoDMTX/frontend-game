@@ -34,6 +34,7 @@ body {
     color: #c42e2e;
     font-weight: 600;
     font-size: 56px;
+    text-align: center;
 }
 
 .character_life {
@@ -55,7 +56,7 @@ body {
 .register {
     font-weight: bold;
     font-size: 20px;
-    
+
 }
 
 .form_elements {

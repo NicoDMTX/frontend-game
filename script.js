@@ -1,27 +1,34 @@
+const charactersCard = []
 
+document.addEventListener("DOMContentLoaded", async(event) => {
+    const res = await axios.get('http://localhost:5000/characters')
+    const datas = res.data;
+    generateAllCards(datas)
+});
 
-async function getCharacters() {
-    try {
-        const response = await axios.get('http://localhost:5000/characters')
-        response.data.map((character, data) => {
-            data += `
-                <div class="character_card">
-                    <div class="character_level">${character.level}</div>
-                    <div class="character_job">${character.job}</div>
-                    <div class="character_life">${character.life}</div>
-                </div>
-            `
-            console.log(data)
-            console.log(character)
-            document.querySelector('.container').innerHTML = data;
-        })
-        
-    } catch (e) {
-        console.log(e)
-    }
+const generateCharacterCard = (life, level, job) => {
+    const div = document.createElement('div');
+    div.classList.add('character_card')
+    div.innerHTML =  `
+        <div class="">
+            <div class="character_level">${life}</div>
+            <div class="character_job">${level}</div>
+            <div class="character_life">${job}</div>
+        </div>
+    `
+    return div;
 }
 
-getCharacters();
+const generateAllCards = (datas => {
+    datas.forEach(data => {
+        const div = generateCharacterCard(data.life, data.level, data.job)
+        charactersCard.push(div)
+
+        document.querySelector('.container').appendChild(div);
+    })
+    
+
+})
 
 const createCharacter = async () => {
     const newCharacter = {
