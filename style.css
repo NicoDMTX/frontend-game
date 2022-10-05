@@ -66,18 +66,21 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 64px;
+    color: rgb(255, 170, 0);
 }
 
 .character_job {
     font-weight: 600;
     font-size: 56px;
     text-align: center;
+    
 }
 
 .character_life {
     text-align: center;
     font-weight: bold;
     font-size: 64px;
+    color: rgb(133, 6, 6);
 }
 
 .character_select {

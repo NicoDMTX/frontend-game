@@ -11,9 +11,9 @@ const generateCharacterCard = (life, level, job) => {
     div.classList.add('character_card')
     div.innerHTML =  `
         <div class="character_content">
-            <div class="character_level">${life}</div>
-            <div class="character_job">${level}</div>
-            <div class="character_life">${job}</div>
+            <div class="character_life">${life}</div>
+            <div class="character_level">Level ${level}</div>
+            <div class="character_job">${job}</div>
             <button class="character_select">Choose this character</button>
         </div>
     `
@@ -38,9 +38,9 @@ const subscribe = async () => {
         email: formEmail.value,
         password: formPassword.value
     }
-    
+
     try {
-        const res = axios.post('http://localhost:5000/register', register)
+        const res = axios.post('http://localhost:5000/user/register', register)
         console.log(res);
 
     } catch(e) {
